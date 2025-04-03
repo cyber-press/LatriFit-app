@@ -1,19 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Latrice's Workout App</title>
-  <link rel="manifest" href="manifest.json" />
-  <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('sw.js');
-    }
-  </script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Segoe+UI">
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', sans-serif;
       background-color: #f5f5f5;
       color: #333;
     }
@@ -24,64 +19,535 @@
       color: white;
       font-size: 24px;
     }
+    .container {
+      padding: 15px;
+      max-width: 650px;
+      margin: auto;
+    }
+    .section {
+      background: white;
+      margin: 12px 0;
+      padding: 15px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
     .day-button {
-      background-color: #4CAF50;
+      background-color: #388e3c;
       color: white;
-      font-size: 22px;
-      padding: 20px;
+      font-size: 20px;
+      padding: 15px;
       border: none;
       width: 100%;
       text-align: left;
       cursor: pointer;
-      margin: 1px 0;
-    }
-    .day-button:hover {
-      background-color: #45a049;
+      margin: 5px 0;
+      border-radius: 8px;
     }
     .workout-details {
-      padding: 20px;
       display: none;
-      background-color: white;
-      font-size: 18px;
+      padding-top: 10px;
+      font-size: 16px;
       line-height: 1.6;
     }
+    .complete-btn {
+      margin-top: 15px;
+      padding: 8px 12px;
+      font-size: 14px;
+      background-color: #eee;
+      border: 2px solid #4CAF50;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .complete-btn.done {
+      background-color: #4CAF50;
+      color: white;
+      font-weight: bold;
+      border-color: #2e7d32;
+    }
+    input, button, select {
+      font-size: 16px;
+      padding: 8px;
+      margin-top: 6px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    ul { padding-left: 20px; }
   </style>
 </head>
 <body>
-
 <header>Latrice's Workout App</header>
+<div class="container">
+  <div class="section">
+    <h3>📆 Workout Days</h3>
+    <button class="day-button">Monday</button>
+    <div class="workout-details" data-day="Monday">
+      <p><strong>Barbell Squats</strong> - 4x10-12</p><p><strong>Leg Press</strong> - 3x12</p><p><strong>Walking Lunges</strong> - 3x12 each leg</p><p><strong>Romanian Deadlifts</strong> - 3x10</p><p><strong>Hip Thrusts</strong> - 4x12</p><p><strong>Cable Kickbacks</strong> - 3x12 each leg</p><p><strong>Plank</strong> - 3x45 sec</p><p><strong>Incline Walk</strong> - 30 min</p>
+      <p><strong>Leg Press</strong> - 3x12</p>
+      <p><strong>Walking Lunges</strong> - 3x12</p>
+      <p><strong>Hip Thrusts</strong> - 4x12</p>
+      <p><strong>Plank</strong> - 3x45sec</p>
+      
+    
+    
+    
+    
 
-<button class="day-button">Monday</button>
-<div class="workout-details">
-  <p><strong>Barbell Squats</strong><br>4 sets x 10-12 (Barbell + Rack)</p>
-  <p><strong>Leg Press</strong><br>3 sets x 12 (Leg Press Machine)</p>
+
+
+
+
+
+
+
+
+
+<div class="stretch-section" style="margin-top:10px;">
+  <strong>Stretch:</strong>
+  <ul>
+    <li>Hamstrings – 30 sec</li>
+    <li>Quads – 30 sec</li>
+    <li>Hip Flexors – 30 sec</li>
+  </ul>
+</div>
+<button class="complete-btn">✅ Mark as Done</button>
+
+    </div>
+    <button class="day-button">Wednesday</button>
+    <div class="workout-details" data-day="Wednesday">
+      <p><strong>Lat Pulldowns</strong> - 4x10-12</p><p><strong>Seated Cable Rows</strong> - 3x12</p><p><strong>Dumbbell Shoulder Press</strong> - 3x12</p><p><strong>Tricep Pushdowns</strong> - 3x15</p><p><strong>Bicep Curls</strong> - 3x12</p><p><strong>Battle Ropes</strong> - 3x30 sec</p><p><strong>Hanging Leg Raises</strong> - 3x10-12</p><p><strong>Stairmaster</strong> - 25–30 min</p>
+      <p><strong>Seated Rows</strong> - 3x12</p>
+      <p><strong>Shoulder Press</strong> - 3x12</p>
+      <p><strong>Bicep Curls</strong> - 3x12</p>
+      
+<div class="stretch-section" style="margin-top:10px;">
+  <strong>Stretch:</strong>
+  <ul>
+    <li>Upper Back – 30 sec</li>
+    <li>Shoulders – 30 sec</li>
+    <li>Triceps – 30 sec</li>
+  </ul>
+</div>
+<button class="complete-btn">✅ Mark as Done</button>
+    </div>
+    <button class="day-button">Friday</button>
+    <div class="workout-details" data-day="Friday">
+      <p><strong>Sumo Deadlifts</strong> - 4x10</p><p><strong>Bulgarian Split Squats</strong> - 3x12 each leg</p><p><strong>Cable Pull-Throughs</strong> - 3x12</p><p><strong>Glute Kickbacks</strong> - 3x12</p><p><strong>Step-Ups</strong> - 3x12 each leg</p><p><strong>Leg Extensions</strong> - 3x15</p><p><strong>Cable Side Crunch</strong> - 3x15 each side</p><p><strong>HIIT Elliptical</strong> - 25 min</p>
+      <p><strong>Glute Kickbacks</strong> - 3x12</p>
+      <p><strong>Leg Extensions</strong> - 3x15</p>
+      <p><strong>Decline Sit-ups</strong> - 3x15</p>
+      
+<div class="stretch-section" style="margin-top:10px;">
+  <strong>Stretch:</strong>
+  <ul>
+    <li>Glutes – 30 sec</li>
+    <li>Lower Back – 30 sec</li>
+    <li>Hip Flexors – 30 sec</li>
+  </ul>
 </div>
 
-<button class="day-button">Wednesday</button>
-<div class="workout-details">
-  <p><strong>Lat Pulldowns</strong><br>4 sets x 10-12 (Lat Pulldown Machine)</p>
+
+<button class="complete-btn">✅ Mark as Done</button>
+    </div>
+    <button class="day-button">Saturday</button>
+    <div class="workout-details" data-day="Saturday">
+      <p><strong>Kettlebell Swings</strong> - 1x15</p><p><strong>Push-ups</strong> - 1x15</p><p><strong>Box Jumps</strong> - 1x12</p><p><strong>Dumbbell Thrusters</strong> - 1x12</p><p><strong>Bent Over Rows</strong> - 1x12</p><p><strong>Bicycle Crunches</strong> - 1x20</p><p><strong>Side Planks</strong> - 30 sec each side</p><p><strong>Rowing Machine</strong> - 20–30 min</p>
+      <p><strong>Push-ups</strong> - 1x15</p>
+      <p><strong>Box Jumps</strong> - 1x12</p>
+      <p><strong>Rowing Machine</strong> - 25 min</p>
+      
+<div class="stretch-section" style="margin-top:10px;">
+  <strong>Stretch:</strong>
+  <ul>
+    <li>Full Body Flow or Light Yoga – 1–2 min</li>
+  </ul>
 </div>
 
-<button class="day-button">Friday</button>
-<div class="workout-details">
-  <p><strong>Sumo Deadlifts</strong><br>4 sets x 10 (Barbell)</p>
+
+
+
+<button class="complete-btn">✅ Mark as Done</button>
+
+    </div>
+  </div>
+
+<div class="section">
+  <h3>🥗 Meal Tracker</h3>
+  <input type="text" id="mealInput" placeholder="Add your meal/snack..."/>
+  <button onclick="addMeal()">Add</button>
+  <ul id="mealList"></ul>
 </div>
 
-<button class="day-button">Saturday</button>
-<div class="workout-details">
-  <p><strong>Kettlebell Swings</strong><br>1 set x 15 (Kettlebell)</p>
+<div class="section">
+  <h3>📸 Progress Photos</h3>
+  <input type="file" accept="image/*" id="photoInput"/>
+  <div id="photoGallery" style="display:flex; flex-wrap:wrap; gap:10px;"></div>
+</div>
+
+<div class="section">
+  <h3>📅 Workout Calendar</h3>
+  <input type="date" id="calendarInput"/>
+  <div id="calendarLog" style="margin-top:10px; font-size:16px;"></div>
+</div>
+
+<div class="section">
+  <h3>💧 Water Tracker</h3>
+  <div id="water-count">You've had 0/8 glasses today.</div>
+  <button onclick="addWater()">+ Add Glass</button>
+  <button onclick="resetWater()">Reset</button>
+</div>
+
+<div class="section">
+  <h3>🎯 Weekly Goal</h3>
+  <input type="text" id="goalInput" placeholder="Enter your weekly goal..."/>
+  <p id="savedGoal"></p>
+</div>
+
+<div class="section">
+  <h3>🎮 XP & Level</h3>
+  <p>XP: <span id="xp">0</span> | Level: <span id="level">1</span></p>
+</div>
+
+<div class="section">
+  <h3>🔥 Streak Tracker</h3>
+  <p>Current Streak: <span id="streak">0</span> days</p>
+</div>
+
+<div class="section">
+  <h3>📚 Fitness Quiz</h3>
+  <p id="quizQuestion"></p>
+  <div id="quizAnswers"></div>
+  <p id="quizResult" style="font-weight:bold; margin-top:10px;"></p>
+</div>
+
+<div class="section">
+  <h3>📈 Weekly Summary</h3>
+  <button onclick="showWeeklySummary()">View Summary</button>
+  <div id="summaryReport" style="margin-top:10px;"></div>
+</div>
+
+<div class="section">
+  <h3>📤 Export Workout History</h3>
+  <button onclick="exportData()">Download .txt Summary</button>
+</div>
+
+
+<script>
+  // JavaScript logic placeholders (functions added next)
+</script>
+<div class="section">
+  <h3>📊 Progress Chart</h3>
+  <canvas id="progressChart" width="300" height="200" style="background:#fff; border-radius:10px;"></canvas>
+</div>
+</body>
+</html>
+
+<script>
+  // Toggle workout day sections
+  const buttons = document.querySelectorAll(".day-button");
+  const sections = document.querySelectorAll(".workout-details");
+  buttons.forEach((btn, index) => {
+    btn.addEventListener("click", () => {
+      sections.forEach(sec => sec.style.display = "none");
+      sections[index].style.display = "block";
+    });
+  });
+
+  // Mark as done
+  document.querySelectorAll(".complete-btn").forEach(btn => {
+    const day = btn.closest(".workout-details").dataset.day;
+    if (localStorage.getItem("done_" + day)) {
+      btn.classList.add("done");
+      btn.textContent = "✅ Completed";
+    }
+    btn.addEventListener("click", () => {
+      localStorage.setItem("done_" + day, "true");
+      btn.classList.add("done");
+      btn.textContent = "✅ Completed";
+      updateXP(10);
+      updateStreak();
+    });
+  });
+
+  // Water Tracker
+  function updateWater(count) {
+    localStorage.setItem("water", count);
+    document.getElementById("water-count").textContent = "You've had " + count + "/8 glasses today.";
+  }
+  function addWater() {
+    let count = parseInt(localStorage.getItem("water") || "0");
+    if (count < 8) count++;
+    updateWater(count);
+  }
+  function resetWater() {
+    updateWater(0);
+  }
+  updateWater(parseInt(localStorage.getItem("water") || "0"));
+
+  // Weekly Goal
+  const goalInput = document.getElementById("goalInput");
+  const savedGoal = document.getElementById("savedGoal");
+  goalInput.addEventListener("change", () => {
+    localStorage.setItem("weeklyGoal", goalInput.value);
+    savedGoal.textContent = "🎯 " + goalInput.value;
+  });
+  if (localStorage.getItem("weeklyGoal")) {
+    goalInput.value = localStorage.getItem("weeklyGoal");
+    savedGoal.textContent = "🎯 " + goalInput.value;
+  }
+
+  // Meal Tracker
+  function addMeal() {
+    const input = document.getElementById("mealInput");
+    let meals = JSON.parse(localStorage.getItem("meals") || "[]");
+    meals.push(input.value);
+    localStorage.setItem("meals", JSON.stringify(meals));
+    input.value = "";
+    renderMeals();
+  }
+  function renderMeals() {
+    const meals = JSON.parse(localStorage.getItem("meals") || "[]");
+    const list = document.getElementById("mealList");
+    list.innerHTML = "";
+    meals.forEach(meal => {
+      const li = document.createElement("li");
+      li.textContent = "🥗 " + meal;
+      list.appendChild(li);
+    });
+  }
+  renderMeals();
+
+  // Photo Upload
+  document.getElementById("photoInput").addEventListener("change", function(e) {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = function(evt) {
+      const img = document.createElement("img");
+      img.src = evt.target.result;
+      img.style.width = "100px";
+      document.getElementById("photoGallery").appendChild(img);
+      let gallery = JSON.parse(localStorage.getItem("photos") || "[]");
+      gallery.push(evt.target.result);
+      localStorage.setItem("photos", JSON.stringify(gallery));
+    };
+    reader.readAsDataURL(file);
+  });
+  (function loadPhotos() {
+    const gallery = JSON.parse(localStorage.getItem("photos") || "[]");
+    gallery.forEach(src => {
+      const img = document.createElement("img");
+      img.src = src;
+      img.style.width = "100px";
+      document.getElementById("photoGallery").appendChild(img);
+    });
+  })();
+
+  // Calendar
+  const calendar = document.getElementById("calendarInput");
+  const log = document.getElementById("calendarLog");
+  calendar.addEventListener("change", () => {
+    let saved = JSON.parse(localStorage.getItem("calendarLog") || "[]");
+    if (!saved.includes(calendar.value)) {
+      saved.push(calendar.value);
+      localStorage.setItem("calendarLog", JSON.stringify(saved));
+      renderCalendar();
+    }
+  });
+  function renderCalendar() {
+    const days = JSON.parse(localStorage.getItem("calendarLog") || "[]");
+    log.innerHTML = "✅ Workouts Logged: <br>" + days.map(d => "• " + d).join("<br>");
+  }
+  renderCalendar();
+
+  // Weekly Summary
+  function showWeeklySummary() {
+    const water = localStorage.getItem("water") || 0;
+    const meals = JSON.parse(localStorage.getItem("meals") || []).length;
+    const calendar = JSON.parse(localStorage.getItem("calendarLog") || "[]").length;
+    const photos = JSON.parse(localStorage.getItem("photos") || []).length;
+    document.getElementById("summaryReport").innerHTML = `
+      <p><strong>✅ Workouts logged:</strong> ${calendar}</p>
+      <p><strong>💧 Water glasses:</strong> ${water}</p>
+      <p><strong>🥗 Meals logged:</strong> ${meals}</p>
+      <p><strong>📸 Photos added:</strong> ${photos}</p>
+    `;
+  }
+
+  // XP + Level
+  function updateXP(amount = 10) {
+    let xp = parseInt(localStorage.getItem("xp") || "0") + amount;
+    let level = Math.floor(xp / 100) + 1;
+    localStorage.setItem("xp", xp);
+    document.getElementById("xp").textContent = xp;
+    document.getElementById("level").textContent = level;
+  }
+  document.getElementById("xp").textContent = localStorage.getItem("xp") || "0";
+  document.getElementById("level").textContent = Math.floor((localStorage.getItem("xp") || 0) / 100) + 1;
+
+  // Streak Tracker
+  function updateStreak() {
+    let streak = parseInt(localStorage.getItem("streak") || "0");
+    let lastDate = localStorage.getItem("lastWorkoutDate");
+    const today = new Date().toLocaleDateString();
+    if (lastDate !== today) {
+      const yesterday = new Date(Date.now() - 86400000).toLocaleDateString();
+      if (lastDate === yesterday) {
+        streak++;
+      } else {
+        streak = 1;
+      }
+      localStorage.setItem("lastWorkoutDate", today);
+      localStorage.setItem("streak", streak);
+    }
+    document.getElementById("streak").textContent = streak;
+  }
+  updateStreak();
+
+  // Quiz Mode
+  const quizSet = [
+    { q: "What nutrient builds muscle?", a: ["Protein", "Carbs", "Fats"], correct: 0 },
+    { q: "How many ounces in a water glass?", a: ["4", "8", "16"], correct: 1 },
+    { q: "Which burns more at rest?", a: ["Muscle", "Fat", "Same"], correct: 0 },
+  ];
+  function loadQuiz() {
+    const quiz = quizSet[Math.floor(Math.random() * quizSet.length)];
+    document.getElementById("quizQuestion").textContent = quiz.q;
+    const answerDiv = document.getElementById("quizAnswers");
+    answerDiv.innerHTML = "";
+    quiz.a.forEach((ans, i) => {
+      const btn = document.createElement("button");
+      btn.textContent = ans;
+      btn.onclick = () => {
+        document.getElementById("quizResult").textContent =
+          i === quiz.correct ? "✅ Correct!" : "❌ Try again.";
+      };
+      answerDiv.appendChild(btn);
+    });
+  }
+  loadQuiz();
+
+  // Export Summary
+  function exportData() {
+    const water = localStorage.getItem("water") || 0;
+    const meals = JSON.parse(localStorage.getItem("meals") || []);
+    const calendar = JSON.parse(localStorage.getItem("calendarLog") || []);
+    const photos = JSON.parse(localStorage.getItem("photos") || []);
+    const summary = `
+Latrice's Workout Summary
+
+✅ Workouts logged: ${calendar.length}
+💧 Water tracked: ${water} glasses
+🥗 Meals logged: ${meals.length}
+📸 Photos uploaded: ${photos.length}
+
+Workout Dates:
+${calendar.join(", ")}
+
+Meals:
+${meals.join("\n")}
+    `;
+    const blob = new Blob([summary], { type: "text/plain;charset=utf-8" });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = "latrice_summary.txt";
+    link.click();
+  }
+
+  // Reset All
+  function resetApp() {
+    localStorage.clear();
+    alert("All progress has been reset. Refresh the page to start fresh.");
+    location.reload();
+  }
+</script>
+
+<div class="section">
+  <h3>🌓 Theme Toggle</h3>
+  <label><input type="checkbox" id="themeToggle"/> Enable Dark Mode</label>
+</div>
+
+<div class="section">
+  <h3>🧹 Reset App</h3>
+  <button onclick="resetApp()">Reset Everything</button>
 </div>
 
 <script>
-  const buttons = document.querySelectorAll(".day-button");
-  const sections = document.querySelectorAll(".workout-details");
-  buttons.forEach((btn, i) => {
-    btn.addEventListener("click", () => {
-      sections.forEach(sec => sec.style.display = "none");
-      sections[i].style.display = "block";
-    });
+  // Dark Mode Toggle
+  const toggle = document.getElementById("themeToggle");
+  toggle.addEventListener("change", () => {
+    if (toggle.checked) {
+      document.body.style.background = "#121212";
+      document.body.style.color = "#eee";
+      document.querySelectorAll(".section").forEach(sec => sec.style.background = "#1e1e1e");
+    } else {
+      document.body.style.background = "#f5f5f5";
+      document.body.style.color = "#333";
+      document.querySelectorAll(".section").forEach(sec => sec.style.background = "#fff");
+    }
+    localStorage.setItem("themeDark", toggle.checked);
   });
-</script>
+  if (localStorage.getItem("themeDark") === "true") {
+    toggle.checked = true;
+    toggle.dispatchEvent(new Event("change"));
+  }
 
-</body>
-</html>
+  // Progress Chart
+  const chartCanvas = document.getElementById("progressChart");
+  const ctx = chartCanvas.getContext("2d");
+  const calendarCount = JSON.parse(localStorage.getItem("calendarLog") || "[]").length;
+  const waterCount = parseInt(localStorage.getItem("water") || "0");
+  const mealsCount = JSON.parse(localStorage.getItem("meals") || []).length;
+
+  const values = [calendarCount, waterCount, mealsCount];
+  const labels = ["Workouts", "Water", "Meals"];
+  const maxVal = 10;
+
+  function drawGrid() {
+    ctx.clearRect(0, 0, chartCanvas.width, chartCanvas.height);
+    ctx.strokeStyle = "#ccc";
+    ctx.lineWidth = 1;
+    for (let i = 0; i <= maxVal; i++) {
+      const y = 180 - (i * 15);
+      ctx.beginPath();
+      ctx.moveTo(0, y);
+      ctx.lineTo(chartCanvas.width, y);
+      ctx.stroke();
+      ctx.fillStyle = "#666";
+      ctx.font = "12px Arial";
+      ctx.fillText(i, 5, y - 2);
+    }
+  }
+
+  function drawBars(heights) {
+    ctx.fillStyle = "#4CAF50";
+    heights.forEach((height, i) => {
+      const x = 60 + i * 100;
+      const y = 180;
+      ctx.fillRect(x, y - height, 40, height);
+      const percent = Math.min(Math.round((values[i] / maxVal) * 100), 100);
+      ctx.fillStyle = "#333";
+      ctx.fillText(labels[i], x, y + 15);
+      ctx.fillText(percent + "%", x + 5, y - height - 10);
+    });
+  }
+
+  function animateChart() {
+    drawGrid();
+    let progress = 0;
+    const heights = values.map(v => Math.min((v / maxVal) * 150, 150));
+    const animated = [0, 0, 0];
+    const interval = setInterval(() => {
+      progress += 5;
+      for (let i = 0; i < heights.length; i++) {
+        if (animated[i] < heights[i]) {
+          animated[i] = Math.min(animated[i] + 5, heights[i]);
+        }
+      }
+      drawGrid();
+      drawBars(animated);
+      if (progress >= 150) clearInterval(interval);
+    }, 30);
+  }
+
+  animateChart();
+</script>
